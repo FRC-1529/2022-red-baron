@@ -24,8 +24,11 @@ class RobotContainer {
 
  private:
   // The robot's subsystems and commands are defined here...
-  ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
+  DrivetrainSubsystem subsys_drivetrain;
+
+  frc::XboxController controller_driver{0};
+
+
 
   void ConfigureButtonBindings();
 };

@@ -8,21 +8,14 @@
 #include <ctre/Phoenix.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
 #include <frc/drive/DifferentialDrive.h>
+#include <frc/XboxController.h>
 
 class DrivetrainSubsystem : public frc2::SubsystemBase {
  public:
   DrivetrainSubsystem();
+  void Drive (double x, double y);
 
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
-  void Periodic() override;
 
-  /**
-   * Will be called periodically whenever the CommandScheduler runs during
-   * simulation.
-   */
-  void SimulationPeriodic() override;
 
  private:
   ctre::phoenix::motorcontrol::can::WPI_TalonFX motor_front_left{2};

@@ -7,11 +7,8 @@
 DrivetrainSubsystem::DrivetrainSubsystem() {
   // Implementation of subsystem constructor goes here.
 }
+void DrivetrainSubsystem::Drive (double x, double y)
+  {
+   differential_drive.ArcadeDrive(x,y);
+  }
 
-void DrivetrainSubsystem::Periodic() {
-  // Implementation of subsystem periodic method goes here.
-}
-
-void DrivetrainSubsystem::SimulationPeriodic() {
-  // Implementation of subsystem simulation periodic method goes here.
-}

@@ -3,19 +3,18 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "RobotContainer.h"
+#include "commands/DrivetrainCommand.h"
 
-RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
+RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
 
   // Configure the button bindings
   ConfigureButtonBindings();
+
+  subsys_drivetrain.SetDefaultCommand(Drive(&subsys_drivetrain, [this] { return controller_driver.GetRightX(); }, [this] { return controller_driver.GetLeftY(); }));
+  
 }
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
-}
-
-frc2::Command* RobotContainer::GetAutonomousCommand() {
-  // An example command will be run in autonomous
-  return &m_autonomousCommand;
 }
