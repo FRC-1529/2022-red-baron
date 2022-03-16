@@ -5,16 +5,15 @@
 #include <frc/motorcontrol/MotorControllerGroup.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/XboxController.h>
-#include <frc/motorcontrol/PWMSparkMax.h>
+#include "rev/CANSparkMax.h"
 
 class IntakeSubsystem : public frc2::SubsystemBase {
-
-IntakeSubsystem();
 public:
-    void Intake();
+    IntakeSubsystem();
+    void intake();
+    void spit_out();
 
 private:
-    frc::PWMSparkMax motor_intake{0};
-
+    rev::CANSparkMax intakeMotor{1, rev::CANSparkMax::MotorType::kBrushless};
 };
 

@@ -7,8 +7,9 @@
 DrivetrainSubsystem::DrivetrainSubsystem() {
   // Implementation of subsystem constructor goes here.
 }
+
 void DrivetrainSubsystem::Drive (double x, double y)
-  {
-   differential_drive.ArcadeDrive(x,y);
-  }
+{
+  differential_drive.ArcadeDrive(x,y);
+}
 

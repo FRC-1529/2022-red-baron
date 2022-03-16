@@ -4,17 +4,23 @@
 
 #include "RobotContainer.h"
 #include "commands/DrivetrainCommand.h"
+#include "commands/IntakeCommand.h"
+#include "subsystems/IntakeSubsystem.h"
 
-RobotContainer::RobotContainer() {
+RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Initialize all of your commands and subsystems here
 
   // Configure the button bindings
   ConfigureButtonBindings();
 
   subsys_drivetrain.SetDefaultCommand(Drive(&subsys_drivetrain, [this] { return controller_driver.GetRightX(); }, [this] { return controller_driver.GetLeftY(); }));
-  
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-  // Configure your button bindings here
+  frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kA).WhenPressed(Intake(&subsys_intake));
+  }
+
+frc2::Command* RobotContainer::GetAutonomousCommand() {
+  // An example command will be run in autonomous
+  return &m_autonomousCommand;
 }
