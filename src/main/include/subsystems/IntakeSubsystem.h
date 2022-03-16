@@ -15,5 +15,6 @@ public:
 
 private:
     rev::CANSparkMax intakeMotor{1, rev::CANSparkMax::MotorType::kBrushless};
+    rev::CANSparkMax elevatorMotor{2, rev::CANSparkMax::MotorType::kBrushless};
 };
 

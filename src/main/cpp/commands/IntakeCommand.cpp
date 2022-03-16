@@ -6,5 +6,4 @@ Intake::Intake(IntakeSubsystem* subsystem) : subsystem{subsystem}{
 
 void Intake::Execute(){
     subsystem->intake();
-    subsystem->spit_out();
 }

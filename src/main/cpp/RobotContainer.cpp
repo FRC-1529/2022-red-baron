@@ -5,6 +5,7 @@
 #include "RobotContainer.h"
 #include "commands/DrivetrainCommand.h"
 #include "commands/IntakeCommand.h"
+#include "commands/SpitOutCommand.h"
 #include "subsystems/IntakeSubsystem.h"
 
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
@@ -18,6 +19,7 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
 
 void RobotContainer::ConfigureButtonBindings() {
   frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kA).WhenPressed(Intake(&subsys_intake));
+  frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kX).WhenPressed(SpitOut(&subsys_intake));
   }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
