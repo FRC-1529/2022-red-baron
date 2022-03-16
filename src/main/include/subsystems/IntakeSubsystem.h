@@ -2,8 +2,6 @@
 
 #include <frc2/command/SubsystemBase.h>
 #include <ctre/Phoenix.h>
-#include <frc/motorcontrol/MotorControllerGroup.h>
-#include <frc/drive/DifferentialDrive.h>
 #include <frc/XboxController.h>
 #include "rev/CANSparkMax.h"
 
@@ -16,5 +14,6 @@ public:
 private:
     rev::CANSparkMax intakeMotor{1, rev::CANSparkMax::MotorType::kBrushless};
     rev::CANSparkMax elevatorMotor{2, rev::CANSparkMax::MotorType::kBrushless};
+    rev::CANSparkMax elevatorMotor2{7, rev::CANSparkMax::MotorType::kBrushless};
 };
 
