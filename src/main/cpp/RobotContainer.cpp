@@ -15,14 +15,14 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Configure the button bindings
   ConfigureButtonBindings();
 
-  subsys_drivetrain.SetDefaultCommand(Drive(&subsys_drivetrain, [this] { return controller_driver.GetRightX(); }, [this] { return controller_driver.GetLeftY(); }));
+  subsys_drivetrain.SetDefaultCommand(Drive(&subsys_drivetrain, [this] { return -controller_driver.GetLeftY(); }, [this] { return controller_driver.GetRightY(); }));
   subsys_shooter.SetDefaultCommand(Shoot(&subsys_shooter, [this] {return controller_operator.GetRightTriggerAxis();}));
 }
 
 void RobotContainer::ConfigureButtonBindings() {
   frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kA).WhenPressed(Intake(&subsys_intake));
   frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kX).WhenPressed(SpitOut(&subsys_intake));
-  }
+}
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous

@@ -10,6 +10,7 @@ public:
     IntakeSubsystem();
     void intake();
     void spit_out();
+    void stop();
 
 private:
     rev::CANSparkMax intakeMotor{1, rev::CANSparkMax::MotorType::kBrushless};

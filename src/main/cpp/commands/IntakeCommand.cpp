@@ -4,6 +4,11 @@ Intake::Intake(IntakeSubsystem* subsystem) : subsystem{subsystem}{
     AddRequirements({subsystem});
 }
 
-void Intake::Execute(){
+void Intake::Initialize() {
     subsystem->intake();
+}
+
+bool Intake::IsFinished() {
+    subsystem->stop();
+    return true;
 }
