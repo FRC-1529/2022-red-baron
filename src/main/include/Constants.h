@@ -4,12 +4,33 @@
 
 #pragma once
 
-/**
- * The Constants header provides a convenient place for teams to hold robot-wide
- * numerical or boolean constants.  This should not be used for any other
- * purpose.
- *
- * It is generally a good idea to place constants into subsystem- or
- * command-specific namespaces within this header, which can then be used where
- * they are needed.
- */
+
+// ==== Drivetrain System ====
+// Falcon 500 - Talon FX CAN IDs
+const int kFrontRightMotorId = 0;
+const int kBackRightMotorId  = 1;
+const int kFrontLeftMotorId  = 2;
+const int kBackLeftMotorId   = 4;
+
+// ==== Cargo Transfer System ====
+// REV SparkMax CAN IDs
+const int kIntakeMotorId   = 1;
+const int kConveyorMotorId = 2;
+const int kElevatorMotorId = 3;
+
+// Pnumatic CAN IDs
+const int kCompressorId = 0;
+const int kSolenoidIds[2] = {0, 1};
+
+// ==== Turret System ====
+// REV SparkMax CAN IDs
+const int kLowerFlywheelMotorId  = 4;
+const int kUpperFloywheelMotorId = 5;
+const int kTurretMotorId         = 6;
+
+// ==== Climb System ====
+// REV SparkMax CAN IDs
+const int kLeftClimbMotorId  = 7;
+const int kRightClimbMotorId = 8;
+
+

@@ -4,12 +4,12 @@
 
 #include "commands/DrivetrainCommand.h"
 
-Drive::Drive(DrivetrainSubsystem* subsystem, std::function<double()> x, std::function<double()> y) : m_drive{subsystem}, param_x{std::move(x)}, param_y{std::move(y)} {
+Drive::Drive(DrivetrainSubsystem* subsystem, std::function<double()> x, std::function<double()> y) : subsystem{subsystem}, param_x{std::move(x)}, param_y{std::move(y)} {
     AddRequirements({subsystem});
 }
 
 void Drive::Execute() {
-    m_drive->Drive(param_x(), param_y());
+    subsystem->Drive(param_x(), param_y());
 }
 
 

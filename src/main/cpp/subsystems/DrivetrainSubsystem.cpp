@@ -5,10 +5,10 @@
 #include "subsystems/DrivetrainSubsystem.h"
 
 DrivetrainSubsystem::DrivetrainSubsystem() {
-  // Implementation of subsystem constructor goes here.
+  gyro.Reset();
 }
 
-void DrivetrainSubsystem::Drive (double x, double y)
+void DrivetrainSubsystem::drive (double x, double y)
 {
   differential_drive.ArcadeDrive(x*0.75,y*0.75, true);
 }

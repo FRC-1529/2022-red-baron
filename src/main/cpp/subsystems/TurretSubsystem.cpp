@@ -1,6 +1,12 @@
 #include <subsystems/TurretSubsystem.h>
 
-TurretSubsystem::TurretSubsystem() {}
+TurretSubsystem::TurretSubsystem() {
+    turretMotor.EnableSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, true);
+    turretMotor.EnableSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, true);
+
+    turretMotor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, 3);
+    turretMotor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, 3);
+}
 
 void TurretSubsystem::turn(double x) {
     turretMotor.Set(x);

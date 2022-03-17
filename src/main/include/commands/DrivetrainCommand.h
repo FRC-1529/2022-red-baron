@@ -29,7 +29,7 @@ class Drive
   void Execute() override;
 
  private:
-  DrivetrainSubsystem* m_drive;
+  DrivetrainSubsystem* subsystem;
   std::function<double()> param_x;
   std::function<double()> param_y;
 };

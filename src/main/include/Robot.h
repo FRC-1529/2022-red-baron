@@ -7,6 +7,7 @@
 #include <frc/TimedRobot.h>
 #include <frc2/command/Command.h>
 #include <frc/XboxController.h>
+#include <frc/smartdashboard/Field2d.h>
 #include "RobotContainer.h"
 #include "commands/DrivetrainCommand.h"
 
@@ -28,6 +29,7 @@ class Robot : public frc::TimedRobot {
   // Have it null by default so that if testing teleop it
   // doesn't have undefined behavior and potentially crash.
   frc2::Command* m_autonomousCommand = nullptr;
+  frc::Field2d m_field;
 
   RobotContainer container;
 };

@@ -2,13 +2,56 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
       "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
-      "/LiveWindow/Ungrouped/frc2::SubsystemBase": "Subsystem"
+      "/LiveWindow/Ungrouped/frc2::SubsystemBase": "Subsystem",
+      "/SmartDashboard/Field": "Field2d"
+    },
+    "windows": {
+      "/LiveWindow/Ungrouped/DifferentialDrive[1]": {
+        "window": {
+          "visible": true
+        }
+      },
+      "/LiveWindow/Ungrouped/Scheduler": {
+        "window": {
+          "visible": true
+        }
+      },
+      "/LiveWindow/Ungrouped/frc2::SubsystemBase": {
+        "window": {
+          "visible": true
+        }
+      },
+      "/SmartDashboard/Field": {
+        "Robot": {
+          "style": "Line (Closed)"
+        },
+        "height": 8.229599952697754,
+        "image": "/home/calob/Downloads/2022-field.png",
+        "units": "feet",
+        "width": 16.459199905395508,
+        "window": {
+          "visible": true
+        }
+      }
     }
   },
   "NetworkTables": {
     "FMSInfo": {
       "open": true
+    }
+  },
+  "Plot": {
+    "Plot <0>": {
+      "plots": [
+        {
+          "height": 338
+        }
+      ],
+      "window": {
+        "visible": false
+      }
     }
   }
 }
