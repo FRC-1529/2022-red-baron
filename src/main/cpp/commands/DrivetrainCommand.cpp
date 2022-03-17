@@ -9,7 +9,7 @@ Drive::Drive(DrivetrainSubsystem* subsystem, std::function<double()> x, std::fun
 }
 
 void Drive::Execute() {
-    subsystem->Drive(param_x(), param_y());
+    subsystem->drive(param_x(), param_y());
 }
 
 
