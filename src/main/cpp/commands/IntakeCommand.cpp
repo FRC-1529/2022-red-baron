@@ -9,6 +9,5 @@ void Intake::Initialize() {
 }
 
 bool Intake::IsFinished() {
-    subsystem->stop();
     return true;
 }

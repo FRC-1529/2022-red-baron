@@ -11,7 +11,8 @@
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/DrivetrainSubsystem.h"
 #include "subsystems/IntakeSubsystem.h"
-#include "subsystems/ShooterSubsystem.h"
+#include "subsystems/TurretSubsystem.h"
+#include "subsystems/ClimbSubsystem.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -32,7 +33,8 @@ class RobotContainer {
   ExampleCommand m_autonomousCommand;
   DrivetrainSubsystem subsys_drivetrain;
   IntakeSubsystem subsys_intake;
-  ShooterSubsystem subsys_shooter;
+  TurretSubsystem subsys_turret;
+  ClimbSubsystem subsys_climb;
 
   frc::XboxController controller_driver{0};
   frc::XboxController controller_operator{1};

@@ -10,6 +10,6 @@ DrivetrainSubsystem::DrivetrainSubsystem() {
 
 void DrivetrainSubsystem::Drive (double x, double y)
 {
-  differential_drive.ArcadeDrive(x,y, true);
+  differential_drive.ArcadeDrive(x*0.75,y*0.75, true);
 }
 

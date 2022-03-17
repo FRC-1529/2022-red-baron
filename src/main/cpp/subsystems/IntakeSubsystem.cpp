@@ -1,21 +1,31 @@
 #include <subsystems/IntakeSubsystem.h>
 
-IntakeSubsystem::IntakeSubsystem() {}
+IntakeSubsystem::IntakeSubsystem() {
+    //pcmCompressor.EnableDigital();
+}
 
 void IntakeSubsystem::intake(){
     intakeMotor.Set(.7);
+    conveyorMotor.Set(.3);
     elevatorMotor.Set(.5);
-    elevatorMotor2.Set(.5);
 }
 
 void IntakeSubsystem::spit_out(){
     intakeMotor.Set(-1);
+    conveyorMotor.Set(-.5);
     elevatorMotor.Set(-.5);
-    elevatorMotor2.Set(-.5);
 }
 
 void IntakeSubsystem::stop() {
     intakeMotor.Set(0);
+    conveyorMotor.Set(0);
     elevatorMotor.Set(0);
-    elevatorMotor2.Set(0);
+}
+
+void IntakeSubsystem::deployIntake() {
+    IntakeSolenoidPCM.Set(frc::DoubleSolenoid::Value::kForward);
+}
+
+void IntakeSubsystem::retractIntake() {
+    IntakeSolenoidPCM.Set(frc::DoubleSolenoid::Value::kReverse);
 }
