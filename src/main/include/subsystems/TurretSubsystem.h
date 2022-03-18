@@ -15,5 +15,6 @@ private:
     rev::CANSparkMax lowerFlywheelMotor{4, rev::CANSparkMax::MotorType::kBrushless};
     rev::CANSparkMax upperFlywheelMotor{5, rev::CANSparkMax::MotorType::kBrushless};
     rev::CANSparkMax turretMotor{6, rev::CANSparkMax::MotorType::kBrushless};
+    rev::SparkMaxRelativeEncoder turretEncoder = turretMotor.GetEncoder();
 };
 

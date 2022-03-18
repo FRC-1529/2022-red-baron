@@ -8,12 +8,10 @@
 #include "commands/DeployIntakeCommand.h"
 #include "commands/RetractIntakeCommand.h"
 #include "commands/StopIntakeCommand.h"
-#include "commands/SpitOutCommand.h"
 #include "commands/TurnTurretCommand.h"
 #include "commands/LaunchCommand.h"
 #include "commands/StopTurretCommand.h"
-#include "commands/ClimbUpCommand.h"
-#include "commands/ClimbDownCommand.h"
+#include "commands/ClimbMoveCommand.h"
 #include "commands/ClimbStopCommand.h"
 
 RobotContainer::RobotContainer()/* : m_autonomousCommand(&m_subsystem) */ {
@@ -23,15 +21,16 @@ RobotContainer::RobotContainer()/* : m_autonomousCommand(&m_subsystem) */ {
   ConfigureButtonBindings();
 
   subsys_drivetrain.SetDefaultCommand(Drive(&subsys_drivetrain, [this] { return controller_driver.GetRightX(); }, [this] { return -controller_driver.GetLeftY(); }));
-  subsys_turret.SetDefaultCommand(TurnTurret(&subsys_turret, [this] { return controller_operator.GetRightX()*0.1; }));
+  subsys_climb.SetDefaultCommand(ClimbMove(&subsys_climb, [this] { return controller_operator.GetLeftY(); }, [this] { return controller_operator.GetRightY(); }));
+  //subsys_turret.SetDefaultCommand(TurnTurret(&subsys_turret, [this] { return controller_operator.GetRightX()*0.1; }));
 }
 
 void RobotContainer::ConfigureButtonBindings() {
   frc2::Trigger([this] { return controller_operator.GetRightTriggerAxis() > .85; }).WhenActive(Launch(&subsys_turret), true).WhenInactive(StopTurret(&subsys_turret));
 
   frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kA).WhenActive(Intake(&subsys_intake), true).WhenInactive(StopIntake(&subsys_intake));
-  frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kRightBumper).WhenActive(ClimbUp(&subsys_climb)).WhenInactive(ClimbStop(&subsys_climb));
-  frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kLeftBumper).WhenActive(ClimbDown(&subsys_climb)).WhenInactive(ClimbStop(&subsys_climb));
+  //frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kRightBumper).WhenActive(ClimbUp(&subsys_climb)).WhenInactive(ClimbStop(&subsys_climb));
+  //frc2::JoystickButton(&controller_operator, frc::XboxController::Button::kLeftBumper).WhenActive(ClimbDown(&subsys_climb)).WhenInactive(ClimbStop(&subsys_climb));
 
 
   frc2::JoystickButton(&controller_driver, frc::XboxController::Button::kRightBumper).WhenActive(DeployIntake(&subsys_intake));

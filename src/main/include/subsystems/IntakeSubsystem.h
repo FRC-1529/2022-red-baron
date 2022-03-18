@@ -21,6 +21,8 @@ public:
 private:
     rev::CANSparkMax intakeMotor{kIntakeMotorId, rev::CANSparkMax::MotorType::kBrushless};
     rev::CANSparkMax conveyorMotor{kConveyorMotorId, rev::CANSparkMax::MotorType::kBrushless};
+    rev::CANSparkMax elevatorMotor{kElevatorMotorId, rev::CANSparkMax::MotorType::kBrushless};
+
 
     frc::Compressor pcmCompressor{kCompressorId, frc::PneumaticsModuleType::CTREPCM}; 
     frc::DoubleSolenoid IntakeSolenoidPCM{frc::PneumaticsModuleType::CTREPCM, kSolenoidIds[0], kSolenoidIds[1]};

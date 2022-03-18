@@ -4,8 +4,8 @@ TurretSubsystem::TurretSubsystem() {
     turretMotor.EnableSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, true);
     turretMotor.EnableSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, true);
 
-    turretMotor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, 3);
-    turretMotor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, 3);
+    turretMotor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, 0.5);
+    turretMotor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, -0.5);
 }
 
 void TurretSubsystem::turn(double x) {

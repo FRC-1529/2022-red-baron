@@ -7,11 +7,13 @@ IntakeSubsystem::IntakeSubsystem() {
 void IntakeSubsystem::intake(){
     intakeMotor.Set(.7);
     conveyorMotor.Set(.3);
+    elevatorMotor.Set(0.5);
 }
 
 void IntakeSubsystem::stop() {
     intakeMotor.Set(0);
     conveyorMotor.Set(0);
+    elevatorMotor.Set(0);
 }
 
 void IntakeSubsystem::deployIntake() {
