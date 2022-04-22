@@ -2,8 +2,10 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Ungrouped/AnalogGyro[0]": "Gyro",
       "/LiveWindow/Ungrouped/DifferentialDrive[1]": "DifferentialDrive",
       "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
+      "/LiveWindow/Ungrouped/class frc2::SubsystemBase": "Subsystem",
       "/LiveWindow/Ungrouped/frc2::SubsystemBase": "Subsystem",
       "/SmartDashboard/Field": "Field2d"
     },
@@ -28,7 +30,6 @@
           "style": "Line (Closed)"
         },
         "height": 8.229599952697754,
-        "image": "/home/calob/Downloads/2022-field.png",
         "units": "feet",
         "width": 16.459199905395508,
         "window": {

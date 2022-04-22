@@ -16,7 +16,15 @@
 class DrivetrainSubsystem : public frc2::SubsystemBase {
  public:
   DrivetrainSubsystem();
-  void drive (double x, double y);
+  void onAutoInit();
+  void onAutoExit();
+  void onTeleopInit();
+  void onTeleopExit();
+
+
+
+  void arcadeDrive (double fwd, double rot, bool slow, bool turbo);
+  void rawSet(double power_l, double power_r);
 
 
 

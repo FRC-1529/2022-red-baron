@@ -5,11 +5,7 @@
 #pragma once
 
 #include <frc/TimedRobot.h>
-#include <frc2/command/Command.h>
-#include <frc/XboxController.h>
-#include <frc/smartdashboard/Field2d.h>
 #include "RobotContainer.h"
-#include "commands/DrivetrainCommand.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -19,17 +15,16 @@ class Robot : public frc::TimedRobot {
   void DisabledPeriodic() override;
   void AutonomousInit() override;
   void AutonomousPeriodic() override;
+  void AutonomousExit() override;
   void TeleopInit() override;
   void TeleopPeriodic() override;
+  void TeleopExit() override;
   void TestPeriodic() override;
   void SimulationInit() override;
   void SimulationPeriodic() override;
 
  private:
-  // Have it null by default so that if testing teleop it
-  // doesn't have undefined behavior and potentially crash.
-  frc2::Command* m_autonomousCommand = nullptr;
-  frc::Field2d m_field;
-
   RobotContainer container;
+
+  frc2::Command* m_autonomousCommand = nullptr;
 };

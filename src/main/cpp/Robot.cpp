@@ -3,17 +3,14 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "Robot.h"
-#include "commands/DrivetrainCommand.h"
 
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/CommandScheduler.h>
-#include <frc2/command/RunCommand.h>
-#include <frc/XboxController.h>
-
+#include <cameraserver/CameraServer.h>
 
 
 void Robot::RobotInit() {
-  frc::SmartDashboard::PutData("Field", &m_field);
+  frc::CameraServer::StartAutomaticCapture();
 }
 
 /**
@@ -42,24 +39,26 @@ void Robot::DisabledPeriodic() {}
  * RobotContainer} class.
  */
 void Robot::AutonomousInit() {
-  // m_autonomousCommand = container.GetAutonomousCommand();
+  container.onAutoInit();
+  m_autonomousCommand = container.GetAutonomousCommand();
 
-  // if (m_autonomousCommand != nullptr) {
-  //   m_autonomousCommand->Schedule();
-  // }
+  if (m_autonomousCommand != nullptr) {
+    m_autonomousCommand->Schedule();
+  }
 }
 
 void Robot::AutonomousPeriodic() {}
 
+void Robot::AutonomousExit() {
+  container.onAutoExit();
+}
+
 void Robot::TeleopInit() {
-  // This makes sure that the autonomous stops running when
-  // teleop starts running. If you want the autonomous to
-  // continue until interrupted by another command, remove
-  // this line or comment it out.
-  // if (m_autonomousCommand != nullptr) {
-  //   m_autonomousCommand->Cancel();
-  //   m_autonomousCommand = nullptr;
-  // }
+  if (m_autonomousCommand != nullptr) {
+    m_autonomousCommand->Cancel();
+    m_autonomousCommand = nullptr;
+  }
+  container.onTeleopInit();
 
 };
 
@@ -67,6 +66,10 @@ void Robot::TeleopInit() {
  * This function is called periodically during operator control.
  */
 void Robot::TeleopPeriodic() {}
+
+void Robot::TeleopExit() {
+  container.onTeleopExit();
+}
 
 /**
  * This function is called periodically during test mode.

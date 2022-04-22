@@ -8,8 +8,27 @@ DrivetrainSubsystem::DrivetrainSubsystem() {
   gyro.Reset();
 }
 
-void DrivetrainSubsystem::drive (double x, double y)
+void DrivetrainSubsystem::onAutoInit() {}
+void DrivetrainSubsystem::onAutoExit() {
+  rawSet(0.0, 0.0);
+}
+void DrivetrainSubsystem::onTeleopInit() {}
+void DrivetrainSubsystem::onTeleopExit() {}
+
+void DrivetrainSubsystem::arcadeDrive (double fwd, double rot, bool slow, bool turbo)
 {
-  differential_drive.ArcadeDrive(x*0.75,y*0.75, true);
+  double modifier = 0.75;
+  if (turbo)
+    modifier = 1.0;
+  if (slow)
+    modifier = 0.45;
+  differential_drive.ArcadeDrive(fwd*modifier,rot*modifier, true);
+}
+
+void DrivetrainSubsystem::rawSet(double power_l, double power_r) {
+  motor_front_left.Set( ctre::phoenix::motorcontrol::ControlMode::PercentOutput, power_l);
+  motor_back_left.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, power_l);
+  motor_front_right.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, power_r);
+  motor_back_right.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, power_r);
 }
 

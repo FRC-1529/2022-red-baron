@@ -12,11 +12,26 @@
 class IntakeSubsystem : public frc2::SubsystemBase {
 public:
     IntakeSubsystem();
-    void intake();
-    void stop();
+    void onAutoInit();
+    void onAutoExit();
+    
+    void onTeleopInit();
+    void onTeleopExit();
 
     void deployIntake();
     void retractIntake();
+
+    void spinIntake();
+    void reverseIntake();
+    void stopIntake();
+
+    void runConveyor();
+    void reverseConveyor();
+    void stopConveyor();
+
+    void runElevator();
+    void reverseElevator();
+    void stopElevator();
 
 private:
     rev::CANSparkMax intakeMotor{kIntakeMotorId, rev::CANSparkMax::MotorType::kBrushless};
